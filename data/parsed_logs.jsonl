@@ -1,0 +1,9 @@
+{"eventTime": "2023-07-19T21:35:03Z", "service": "cloudtrail", "action": "UpdateTrail", "actor": "Terry", "result": "TrailNotFoundException"}
+{"eventTime": "2023-07-19T21:19:22Z", "service": "ec2", "action": "CreateKeyPair", "actor": "Arnav", "result": "Allowed"}
+{"eventTime": "2023-07-19T21:17:28Z", "service": "ec2", "action": "StartInstances", "actor": "Mateo", "result": "Allowed"}
+{"eventTime": "2023-07-19T21:14:20Z", "service": "ec2", "action": "StopInstances", "actor": "Nikki", "result": "Allowed"}
+{"eventTime": "2023-07-19T21:25:09Z", "service": "iam", "action": "AddUserToGroup", "actor": "Paulo", "result": "Allowed"}
+{"eventTime": "2023-07-19T21:29:12Z", "service": "iam", "action": "CreateRole", "actor": "Saanvi", "result": "Allowed"}
+{"eventTime": "2023-07-19T21:25:09Z", "service": "iam", "action": "CreateUser", "actor": "Mary", "result": "Allowed"}
+{"eventTime": "2023-01-02T02:51:00Z", "service": "", "action": "Unknown", "actor": "Unknown", "result": "Allowed"}
+{"eventTime": "2023-01-02T00:22:00Z", "service": "", "action": "Unknown", "actor": "Unknown", "result": "Allowed"}

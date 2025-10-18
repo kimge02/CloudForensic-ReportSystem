@@ -1,0 +1,10 @@
+{
+  "cloudtrail:UpdateTrail": {"risk": 90, "reason": "CloudTrail configuration change (potential log tampering)"},
+  "ec2:CreateKeyPair":     {"risk": 80, "reason": "EC2 SSH key creation (possible external access)"},
+  "ec2:StartInstances":    {"risk": 60, "reason": "EC2 instance started (manual activation detected)"},
+  "ec2:StopInstances":     {"risk": 60, "reason": "EC2 instance stopped (availability degraded)"},
+  "iam:CreateUser":        {"risk": 70, "reason": "IAM user created (new identity added)"},
+  "iam:AddUserToGroup":    {"risk": 50, "reason": "AddUserToGroup"},
+  "iam:CreateRole":        {"risk": 65, "reason": "IAM create role"},
+  "*:*":                   {"risk": 10, "reason": "Normal event"}
+}

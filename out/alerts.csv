@@ -1,0 +1,10 @@
+time,actor,service,action,result,risk_score,reason
+2023-07-19T21:35:03Z,Terry,cloudtrail,UpdateTrail,TrailNotFoundException,90,CloudTrail configuration change (potential log tampering)
+2023-07-19T21:19:22Z,Arnav,ec2,CreateKeyPair,Allowed,80,EC2 SSH key creation (possible external access)
+2023-07-19T21:17:28Z,Mateo,ec2,StartInstances,Allowed,60,EC2 instance started (manual activation detected)
+2023-07-19T21:14:20Z,Nikki,ec2,StopInstances,Allowed,60,EC2 instance stopped (availability degraded)
+2023-07-19T21:25:09Z,Paulo,iam,AddUserToGroup,Allowed,50,AddUserToGroup
+2023-07-19T21:29:12Z,Saanvi,iam,CreateRole,Allowed,65,IAM create role
+2023-07-19T21:25:09Z,Mary,iam,CreateUser,Allowed,70,IAM user created (new identity added)
+2023-01-02T02:51:00Z,Unknown,,Unknown,Allowed,10,Normal event
+2023-01-02T00:22:00Z,Unknown,,Unknown,Allowed,10,Normal event
