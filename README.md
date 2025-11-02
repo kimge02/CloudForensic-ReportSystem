@@ -16,23 +16,6 @@ CloudTrail 로그에서 사용자 활동을 수집
 
 관리자는 복잡한 로그 분석 없이 클릭 한 번으로 보안 요약 리포트를 받을 수 있습니다.
 
-🧩 시스템 구성
-CloudForensic-ReportSystem/
- ┣ data/
- ┃ ┣ raw_logs/                ← 원본 CloudTrail 로그(JSON)
- ┃ ┗ parsed_logs.jsonl        ← 정규화된 로그 (log_collector.py 결과)
- ┣ rules/
- ┃ ┗ sensitive_apis.json      ← 위험 행위 정의 규칙 파일
- ┣ src/
- ┃ ┣ log_collector.py         ← 로그 정규화 (JSON → JSONL)
- ┃ ┣ log_analyzer.py          ← 탐지 분석 및 위험 점수 계산
- ┃ ┣ report_generator.py      ← PDF 리포트 자동 생성
- ┃ ┗ log_mutator.py           ← 샘플 로그 다변화 (V2 기능)
- ┣ out/
- ┃ ┗ alerts.csv               ← 탐지 결과 요약
- ┗ reports/
-   ┗ report.pdf               ← 자동 생성 리포트
-
 ⚙️ 실행 방법
 # 1️⃣ 로그 확장 (샘플 로그 8 → 25개 복제)
 python src/log_mutator.py
@@ -65,12 +48,6 @@ V2 버전에서는 로그 데이터 다양화 및 PDF 내 시각화 기능이 �
 Top 5 위험 이벤트	가장 위험한 이벤트 5개 자동 정렬
 서비스별 그래프	EC2, IAM, CloudTrail 등 서비스별 비율 시각화
 
-📄 샘플 미리보기
 
 
 
-🧠 다음 버전 (V3) 예정 기능
-단계	목표	주요 내용
-V3 (지능형 분석)	이상행동 탐지 + 자동 수집	Z-score 기반 사용자별 이상탐지, 실시간 로그 감시
-V4 (최종 발표)	자동화 및 시각 리포트 고도화	HTML 대시보드 및 실시간 PDF 업데이트
-당
