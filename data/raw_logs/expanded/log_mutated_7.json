@@ -1,0 +1,34 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.08",
+      "eventTime": "2025-10-27T10:31:09.297694Z",
+      "awsRegion": "us-east-1",
+      "eventID": "654a30ff-b0f3-4527-81b6-EXAMPLEf2393",
+      "eventType": "AwsCloudTrailInsight",
+      "recipientAccountId": "123456789012",
+      "sharedEventID": "bcbfc274-8559-4a56-beb0-EXAMPLEa6c34",
+      "insightDetails": {
+        "state": "Start",
+        "eventSource": "ssm.amazonaws.com",
+        "eventName": "UpdateInstanceInformation",
+        "insightType": "ApiCallRateInsight",
+        "insightContext": {
+          "statistics": {
+            "baseline": {
+              "average": 84.410596421
+            },
+            "insight": {
+              "average": 669
+            }
+          }
+        }
+      },
+      "eventCategory": "Insight",
+      "userIdentity": {
+        "userName": "tester"
+      },
+      "eventSource": "cloudtrail.amazonaws.com"
+    }
+  ]
+}

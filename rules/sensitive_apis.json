@@ -1,10 +1,57 @@
 {
-  "cloudtrail:UpdateTrail": {"risk": 90, "reason": "CloudTrail configuration change (potential log tampering)"},
-  "ec2:CreateKeyPair":     {"risk": 80, "reason": "EC2 SSH key creation (possible external access)"},
-  "ec2:StartInstances":    {"risk": 60, "reason": "EC2 instance started (manual activation detected)"},
-  "ec2:StopInstances":     {"risk": 60, "reason": "EC2 instance stopped (availability degraded)"},
-  "iam:CreateUser":        {"risk": 70, "reason": "IAM user created (new identity added)"},
-  "iam:AddUserToGroup":    {"risk": 50, "reason": "AddUserToGroup"},
-  "iam:CreateRole":        {"risk": 65, "reason": "IAM create role"},
-  "*:*":                   {"risk": 10, "reason": "Normal event"}
+  "cloudtrail:UpdateTrail": {
+    "risk": 90,
+    "reason": "CloudTrail configuration change (potential log tampering)"
+  },
+  "ec2:CreateKeyPair": {
+    "risk": 80,
+    "reason": "EC2 SSH key creation (possible external access)"
+  },
+  "ec2:StartInstances": {
+    "risk": 60,
+    "reason": "EC2 instance started (manual activation detected)"
+  },
+  "ec2:StopInstances": {
+    "risk": 60,
+    "reason": "EC2 instance stopped (availability degraded)"
+  },
+  "iam:CreateUser": {
+    "risk": 70,
+    "reason": "IAM user created (new identity added)"
+  },
+  "iam:AddUserToGroup": {
+    "risk": 50,
+    "reason": "AddUserToGroup"
+  },
+  "iam:CreateRole": {
+    "risk": 65,
+    "reason": "IAM create role"
+  },
+
+  "s3:DeleteBucket": {
+    "risk": 85,
+    "reason": "S3 bucket deleted (possible data loss or exfiltration)"
+  },
+  "s3:GetObject": {
+    "risk": 70,
+    "reason": "S3 object access (data exfiltration risk)"
+  },
+  "s3:PutObject": {
+    "risk": 65,
+    "reason": "S3 object modification (potential data injection)"
+  },
+
+  "cloudwatch:PutMetricFilter": {
+    "risk": 60,
+    "reason": "CloudWatch metric filter modified (monitoring evasion)"
+  },
+  "cloudwatch:DeleteAlarms": {
+    "risk": 75,
+    "reason": "CloudWatch alarms deleted (alert suppression)"
+  },
+
+  "*:*": {
+    "risk": 10,
+    "reason": "Normal event"
+  }
 }
