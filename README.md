@@ -35,8 +35,10 @@ CloudForensic-ReportSystem/
 ┃ ┣ log_analyzer.py ← 이상행동 탐지
 ┃ ┣ report_generator.py ← PDF 리포트 생성
 ┃ ┣ user_profiler.py ← 사용자 프로파일링
-┃ ┣ watcher.py ← 실시간 감시 자동화
+┃ ┗ watcher.py ← 실시간 감시 자동화
 ┣ dashboard_app.py ← Streamlit 대시보드
+
+
 
 
 ---
