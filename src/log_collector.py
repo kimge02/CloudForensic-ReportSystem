@@ -1,7 +1,9 @@
 import json
 from pathlib import Path
 
-data_dir = Path("../data/raw_logs")
+# 🔧 raw_logs와 expanded 폴더 모두 탐색
+base_dir = Path("../data/raw_logs")
+expanded_dir = base_dir / "expanded"
 out_path = Path("../data/parsed_logs.jsonl")
 
 def normalize_event(event):
@@ -14,12 +16,10 @@ def normalize_event(event):
     actor  = event.get("userIdentity", {}).get("userName") or \
              event.get("userIdentity", {}).get("arn", "Unknown").split("/")[-1]
 
-    # 에러코드 기반 판정이 더 정확
     result = "Allowed"
     err = event.get("errorCode")
     if err:
         result = err
-
 
     return {
         "eventTime": event.get("eventTime", ""),
@@ -31,9 +31,21 @@ def normalize_event(event):
 
 def main():
     with open(out_path, "w", encoding="utf-8") as out:
-        for file in data_dir.glob("*.json"):
+        # ✅ 두 폴더 모두 읽기
+        all_files = list(base_dir.glob("*.json"))
+        if expanded_dir.exists():
+            all_files += list(expanded_dir.glob("*.json"))
+
+        print(f"[+] Found {len(all_files)} log files to process")
+
+        for file in all_files:
             with open(file, encoding="utf-8") as f:
-                data = json.load(f)
+                try:
+                    data = json.load(f)
+                except json.JSONDecodeError:
+                    print(f"[!] Invalid JSON: {file}")
+                    continue
+
                 for e in data.get("Records", []):
                     parsed = normalize_event(e)
                     out.write(json.dumps(parsed) + "\n")
@@ -41,3 +53,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

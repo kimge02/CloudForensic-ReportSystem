@@ -4,8 +4,10 @@ from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image
 import pandas as pd
+import matplotlib.pyplot as plt
+import os
 from pathlib import Path
 
 ALERTS  = Path(r"E:\고은폴더\대학교\정보보안\3학년\캡스톤디자인(3-2)\CloudForensic-ReportSystem\out\alerts.csv")
@@ -18,7 +20,7 @@ def generate_report():
 
     REPORTS.parent.mkdir(parents=True, exist_ok=True)
 
-    # (한글 폰트 필요 없으면 이 줄은 생략해도 됨)
+    # (한글 폰트 필요 없으면 생략 가능)
     pdfmetrics.registerFont(UnicodeCIDFont('HYSMyeongJo-Medium'))
 
     # ▶ 가로방향 + 여백 축소로 폭 확보
@@ -29,17 +31,15 @@ def generate_report():
     )
 
     styles = getSampleStyleSheet()
-    # 기본 폰트/크기 통일
     styles["Normal"].fontName = 'HYSMyeongJo-Medium'
     styles["Title"].fontName  = 'HYSMyeongJo-Medium'
     styles["Normal"].fontSize = 9
     styles["Normal"].leading  = 11
 
-    # ▶ 긴 단어도 강제로 줄바꿈되도록 별도 스타일
     wrap_style = ParagraphStyle(
         'wrap',
         parent=styles['Normal'],
-        wordWrap='CJK',         # 영문 긴 토큰도 분리해서 줄바꿈
+        wordWrap='CJK',
         fontName='HYSMyeongJo-Medium',
         fontSize=9,
         leading=11
@@ -48,7 +48,7 @@ def generate_report():
     elements = []
 
     # 제목
-    elements.append(Paragraph("<b>Cloud Forensics Automatic Report</b>", styles['Title']))
+    elements.append(Paragraph("<b>Cloud Forensics Automatic Report (V2)</b>", styles['Title']))
     elements.append(Spacer(1, 14))
 
     # 요약
@@ -57,9 +57,36 @@ def generate_report():
     elements.append(Paragraph(f"Average Risk Score: {df['risk_score'].mean():.1f}", styles['Normal']))
     elements.append(Spacer(1, 8))
 
-    # 상위 5개
-    top = df.sort_values("risk_score", ascending=False).head(5)
+    # ========================
+    # ✅ V2 추가: 서비스별 이벤트 그래프
+    # ========================
+    try:
+        service_counts = df["service"].value_counts()
+        plt.figure(figsize=(6,4))
+        service_counts.plot(kind='bar', color='skyblue', title='Event Distribution by Service')
+        plt.xlabel('Service')
+        plt.ylabel('Count')
+        plt.tight_layout()
 
+        # 🔧 절대 경로 기반으로 out 폴더 지정
+        chart_path = Path(__file__).resolve().parent.parent / "out" / "service_chart.png"
+        chart_path.parent.mkdir(parents=True, exist_ok=True)
+
+        plt.savefig(chart_path)
+        plt.close()
+
+        elements.append(Paragraph("&#9632; Service-wise Event Distribution", styles['Heading2']))
+        elements.append(Spacer(1, 8))
+        if chart_path.exists():
+            elements.append(Image(str(chart_path), width=420, height=260))
+            elements.append(Spacer(1, 12))
+    except Exception as e:
+        elements.append(Paragraph(f"(그래프 생성 중 오류 발생: {e})", styles['Normal']))
+        elements.append(Spacer(1, 12))
+
+
+    # 상위 5개 위험 이벤트
+    top = df.sort_values("risk_score", ascending=False).head(5)
     header = ["Time", "Actor", "Service", "Action", "Result", "Risk", "Reason"]
     rows = []
     for _, r in top.iterrows():
@@ -67,15 +94,13 @@ def generate_report():
             Paragraph(str(r["time"]),    wrap_style),
             Paragraph(str(r["actor"]),   wrap_style),
             Paragraph(str(r["service"]), wrap_style),
-            Paragraph(str(r["action"]),  wrap_style),   # 긴 액션도 줄바꿈
-            Paragraph(str(r["result"]),  wrap_style),   # 에러코드도 줄바꿈
+            Paragraph(str(r["action"]),  wrap_style),
+            Paragraph(str(r["result"]),  wrap_style),
             int(r["risk_score"]),
-            Paragraph(str(r["reason"]),  wrap_style)    # 설명 줄바꿈
+            Paragraph(str(r["reason"]),  wrap_style)
         ])
 
     data = [header] + rows
-
-    # ▶ 가로 A4 기준 적당한 폭(필요하면 미세조정)
     col_widths = [120, 70, 70, 120, 90, 40, 320]
 
     t = Table(data, colWidths=col_widths, repeatRows=1)
@@ -83,19 +108,15 @@ def generate_report():
         ('BACKGROUND', (0,0), (-1,0), colors.grey),
         ('TEXTCOLOR',  (0,0), (-1,0), colors.whitesmoke),
         ('GRID',       (0,0), (-1,-1), 0.5, colors.black),
-
         ('VALIGN',     (0,0), (-1,-1), 'TOP'),
-        ('ALIGN',      (0,0), (-3,-1), 'CENTER'),   # Risk 전까지 가운데
-        ('ALIGN',      (-2,1), (-2,-1), 'RIGHT'),   # Risk 숫자 오른쪽 정렬
-
+        ('ALIGN',      (0,0), (-3,-1), 'CENTER'),
+        ('ALIGN',      (-2,1), (-2,-1), 'RIGHT'),
         ('LEFTPADDING',(0,0), (-1,-1), 4),
         ('RIGHTPADDING',(0,0), (-1,-1), 4),
         ('TOPPADDING', (0,0), (-1,-1), 3),
         ('BOTTOMPADDING',(0,0), (-1,-1), 3),
-
         ('BACKGROUND', (0,1), (-1,-1), colors.whitesmoke),
     ]))
-
     elements.append(t)
     elements.append(Spacer(1, 14))
 
@@ -109,4 +130,5 @@ def generate_report():
 
 if __name__ == "__main__":
     generate_report()
+
 
