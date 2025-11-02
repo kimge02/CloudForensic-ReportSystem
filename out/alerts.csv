@@ -8,3 +8,26 @@ time,actor,service,action,result,risk_score,reason
 2023-07-19T21:25:09Z,Mary,iam,CreateUser,Allowed,70,IAM user created (new identity added)
 2023-01-02T02:51:00Z,Unknown,,Unknown,Allowed,10,Normal event
 2023-01-02T00:22:00Z,Unknown,,Unknown,Allowed,10,Normal event
+2025-10-31T09:12:00Z,tester,s3,CreateBucket,Allowed,10,Normal event
+2025-10-31T09:15:00Z,cloudops,cloudwatch,PutMetricData,Allowed,10,Normal event
+2025-10-28T00:19:09.291742Z,cloudops,cloudtrail,UpdateTrail,TrailNotFoundException,90,CloudTrail configuration change (potential log tampering)
+2025-10-30T14:37:09.292739Z,cloudops,s3,CreateKeyPair,Allowed,10,Normal event
+2025-10-30T00:21:55.222970Z,developer,cloudtrail,StopInstances,Allowed,10,Normal event
+2025-10-24T13:16:55.224479Z,admin,iam,StopInstances,Allowed,10,Normal event
+2025-10-26T22:12:55.252696Z,admin,ec2,AddUserToGroup,Allowed,10,Normal event
+2025-10-29T15:20:55.254206Z,security_audit,cloudwatch,AddUserToGroup,Allowed,10,Normal event
+2025-10-25T12:37:55.255221Z,tester,s3,AddUserToGroup,Allowed,10,Normal event
+2025-10-31T01:57:55.282324Z,developer,cloudwatch,CreateRole,Allowed,10,Normal event
+2025-10-31T02:32:55.284323Z,security_audit,s3,CreateRole,Allowed,10,Normal event
+2025-10-31T01:27:55.285333Z,cloudops,ec2,CreateRole,Allowed,10,Normal event
+2025-10-26T21:22:55.313421Z,tester,cloudwatch,CreateUser,Allowed,10,Normal event
+2025-10-25T11:08:55.314422Z,cloudops,iam,CreateUser,Allowed,70,IAM user created (new identity added)
+2025-10-30T21:13:09.294253Z,security_audit,s3,StartInstances,Allowed,10,Normal event
+2025-10-25T13:21:55.315423Z,admin,iam,CreateUser,Allowed,70,IAM user created (new identity added)
+2025-10-30T03:24:09.295264Z,security_audit,cloudtrail,StopInstances,Allowed,10,Normal event
+2025-10-27T11:56:09.295264Z,security_audit,s3,AddUserToGroup,Allowed,10,Normal event
+2025-10-25T03:56:09.296680Z,cloudops,ec2,CreateRole,Allowed,10,Normal event
+2025-10-28T00:08:09.296680Z,security_audit,iam,CreateUser,Allowed,70,IAM user created (new identity added)
+2025-10-27T10:31:09.297694Z,tester,cloudtrail,Unknown,Allowed,10,Normal event
+2025-10-28T15:08:09.299273Z,developer,cloudtrail,Unknown,Allowed,10,Normal event
+2025-10-25T22:09:55.222970Z,cloudops,cloudtrail,StopInstances,Allowed,10,Normal event

@@ -1,0 +1,219 @@
+{
+    "Arnav": {
+        "total_events": 1,
+        "services": {
+            "ec2": 1
+        },
+        "actions": {
+            "CreateKeyPair": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 1
+        }
+    },
+    "Mary": {
+        "total_events": 1,
+        "services": {
+            "iam": 1
+        },
+        "actions": {
+            "CreateUser": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 1
+        }
+    },
+    "Mateo": {
+        "total_events": 1,
+        "services": {
+            "ec2": 1
+        },
+        "actions": {
+            "StartInstances": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 1
+        }
+    },
+    "Nikki": {
+        "total_events": 1,
+        "services": {
+            "ec2": 1
+        },
+        "actions": {
+            "StopInstances": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 1
+        }
+    },
+    "Paulo": {
+        "total_events": 1,
+        "services": {
+            "iam": 1
+        },
+        "actions": {
+            "AddUserToGroup": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 1
+        }
+    },
+    "Saanvi": {
+        "total_events": 1,
+        "services": {
+            "iam": 1
+        },
+        "actions": {
+            "CreateRole": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 1
+        }
+    },
+    "Terry": {
+        "total_events": 1,
+        "services": {
+            "cloudtrail": 1
+        },
+        "actions": {
+            "UpdateTrail": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 1
+        }
+    },
+    "Unknown": {
+        "total_events": 2,
+        "services": {},
+        "actions": {
+            "Unknown": 2
+        },
+        "time_distribution": {
+            "00-06": 2,
+            "06-12": 0,
+            "12-18": 0,
+            "18-24": 0
+        }
+    },
+    "admin": {
+        "total_events": 3,
+        "services": {
+            "iam": 2,
+            "ec2": 1
+        },
+        "actions": {
+            "StopInstances": 1,
+            "AddUserToGroup": 1,
+            "CreateUser": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 0,
+            "12-18": 2,
+            "18-24": 1
+        }
+    },
+    "cloudops": {
+        "total_events": 6,
+        "services": {
+            "cloudtrail": 2,
+            "ec2": 2,
+            "s3": 1,
+            "iam": 1
+        },
+        "actions": {
+            "CreateRole": 2,
+            "UpdateTrail": 1,
+            "CreateKeyPair": 1,
+            "CreateUser": 1,
+            "StopInstances": 1
+        },
+        "time_distribution": {
+            "00-06": 3,
+            "06-12": 1,
+            "12-18": 1,
+            "18-24": 1
+        }
+    },
+    "developer": {
+        "total_events": 3,
+        "services": {
+            "cloudtrail": 2,
+            "cloudwatch": 1
+        },
+        "actions": {
+            "StopInstances": 1,
+            "CreateRole": 1,
+            "Unknown": 1
+        },
+        "time_distribution": {
+            "00-06": 2,
+            "06-12": 0,
+            "12-18": 1,
+            "18-24": 0
+        }
+    },
+    "security_audit": {
+        "total_events": 6,
+        "services": {
+            "s3": 3,
+            "cloudwatch": 1,
+            "cloudtrail": 1,
+            "iam": 1
+        },
+        "actions": {
+            "AddUserToGroup": 2,
+            "CreateRole": 1,
+            "StartInstances": 1,
+            "StopInstances": 1,
+            "CreateUser": 1
+        },
+        "time_distribution": {
+            "00-06": 3,
+            "06-12": 1,
+            "12-18": 1,
+            "18-24": 1
+        }
+    },
+    "tester": {
+        "total_events": 3,
+        "services": {
+            "s3": 1,
+            "cloudwatch": 1,
+            "cloudtrail": 1
+        },
+        "actions": {
+            "AddUserToGroup": 1,
+            "CreateUser": 1,
+            "Unknown": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 1,
+            "12-18": 1,
+            "18-24": 1
+        }
+    }
+}
