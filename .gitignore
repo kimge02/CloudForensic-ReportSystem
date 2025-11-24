@@ -1,0 +1,15 @@
+# 민감/비공개 파일
+config.json
+
+# 로그 / 결과물
+data/raw_logs/
+data/parsed_logs.jsonl
+out/
+reports/*.pdf
+
+# 파이썬 캐시 파일
+__pycache__/
+*.pyc
+
+# 서비스 차트 이미지
+service_chart.png

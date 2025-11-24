@@ -14,8 +14,8 @@ ANOM   = OUT / "anomalies.csv"
 EV_AN  = OUT / "event_anomalies.csv"
 USRJS  = OUT / "user_summary.json"
 
-st.set_page_config(page_title="Cloud Forensic Dashboard (V3)", layout="wide")
-st.title("☁️ Cloud Forensic Dashboard (V3)")
+st.set_page_config(page_title="Cloud Forensic Dashboard (V4)", layout="wide")
+st.title("☁️ Cloud Forensic Dashboard (V4)")
 st.caption("AWS CloudTrail 기반 자동 분석 리포트 (alerts.csv, anomalies.csv, user_summary.json)")
 
 # ---------- 데이터 로드 ----------

@@ -105,115 +105,293 @@
         }
     },
     "Unknown": {
-        "total_events": 2,
-        "services": {},
+        "total_events": 1718,
+        "services": {
+            "sts": 1362,
+            "s3": 351,
+            "ec2": 2,
+            "cloudtrail": 1
+        },
         "actions": {
-            "Unknown": 2
+            "AssumeRole": 1362,
+            "GetBucketAcl": 351,
+            "Unknown": 2,
+            "SharedSnapshotVolumeCreated": 2,
+            "CreateServiceLinkedChannel": 1
         },
         "time_distribution": {
-            "00-06": 2,
-            "06-12": 0,
+            "00-06": 245,
+            "06-12": 719,
+            "12-18": 437,
+            "18-24": 317
+        }
+    },
+    "arn:aws:iam::518097206937:root": {
+        "total_events": 1679,
+        "services": {
+            "iam": 644,
+            "ec2": 347,
+            "notifications": 174,
+            "organizations": 153,
+            "sso": 68,
+            "cloudtrail": 62,
+            "s3": 50,
+            "resource-explorer-2": 40,
+            "freetier": 28,
+            "logs": 24,
+            "uxc": 21,
+            "ssm": 21,
+            "health": 13,
+            "compute-optimizer": 10,
+            "access-analyzer": 8,
+            "monitoring": 5,
+            "ce": 3,
+            "config": 2,
+            "billingconsole": 2,
+            "servicecatalog-appregistry": 1,
+            "mapcredits": 1,
+            "signin": 1,
+            "cost-optimization-hub": 1
+        },
+        "actions": {
+            "DescribeOrganization": 153,
+            "ListPolicies": 146,
+            "ListManagedNotificationEvents": 133,
+            "ListAccessKeys": 80,
+            "DescribeInstances": 73
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 1426,
+            "12-18": 253,
+            "18-24": 0
+        }
+    },
+    "cloudops": {
+        "total_events": 1,
+        "services": {
+            "cloudwatch": 1
+        },
+        "actions": {
+            "PutMetricData": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 1,
             "12-18": 0,
             "18-24": 0
         }
     },
-    "admin": {
-        "total_events": 3,
+    "cloudtrail-reader": {
+        "total_events": 1,
         "services": {
-            "iam": 2,
-            "ec2": 1
+            "sts": 1
         },
         "actions": {
-            "StopInstances": 1,
-            "AddUserToGroup": 1,
-            "CreateUser": 1
+            "GetCallerIdentity": 1
         },
         "time_distribution": {
             "00-06": 0,
-            "06-12": 0,
-            "12-18": 2,
-            "18-24": 1
-        }
-    },
-    "cloudops": {
-        "total_events": 6,
-        "services": {
-            "cloudtrail": 2,
-            "ec2": 2,
-            "s3": 1,
-            "iam": 1
-        },
-        "actions": {
-            "CreateRole": 2,
-            "UpdateTrail": 1,
-            "CreateKeyPair": 1,
-            "CreateUser": 1,
-            "StopInstances": 1
-        },
-        "time_distribution": {
-            "00-06": 3,
-            "06-12": 1,
-            "12-18": 1,
-            "18-24": 1
-        }
-    },
-    "developer": {
-        "total_events": 3,
-        "services": {
-            "cloudtrail": 2,
-            "cloudwatch": 1
-        },
-        "actions": {
-            "StopInstances": 1,
-            "CreateRole": 1,
-            "Unknown": 1
-        },
-        "time_distribution": {
-            "00-06": 2,
             "06-12": 0,
             "12-18": 1,
             "18-24": 0
         }
     },
-    "security_audit": {
-        "total_events": 6,
+    "i-033c2f7f2629541c5": {
+        "total_events": 1,
         "services": {
-            "s3": 3,
-            "cloudwatch": 1,
-            "cloudtrail": 1,
-            "iam": 1
+            "ssm": 1
         },
         "actions": {
-            "AddUserToGroup": 2,
-            "CreateRole": 1,
-            "StartInstances": 1,
-            "StopInstances": 1,
-            "CreateUser": 1
-        },
-        "time_distribution": {
-            "00-06": 3,
-            "06-12": 1,
-            "12-18": 1,
-            "18-24": 1
-        }
-    },
-    "tester": {
-        "total_events": 3,
-        "services": {
-            "s3": 1,
-            "cloudwatch": 1,
-            "cloudtrail": 1
-        },
-        "actions": {
-            "AddUserToGroup": 1,
-            "CreateUser": 1,
-            "Unknown": 1
+            "RegisterManagedInstance": 1
         },
         "time_distribution": {
             "00-06": 0,
             "06-12": 1,
-            "12-18": 1,
-            "18-24": 1
+            "12-18": 0,
+            "18-24": 0
+        }
+    },
+    "i-06eea5301b545340d": {
+        "total_events": 1,
+        "services": {
+            "ssm": 1
+        },
+        "actions": {
+            "RegisterManagedInstance": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 1,
+            "12-18": 0,
+            "18-24": 0
+        }
+    },
+    "onboarding": {
+        "total_events": 3,
+        "services": {
+            "resource-explorer-2": 3
+        },
+        "actions": {
+            "CreateView": 1,
+            "CreateIndex": 1,
+            "AssociateDefaultView": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 3,
+            "12-18": 0,
+            "18-24": 0
+        }
+    },
+    "resource-explorer-2": {
+        "total_events": 1281,
+        "services": {
+            "cloudcontrolapi": 166,
+            "ec2": 147,
+            "sagemaker": 70,
+            "rds": 58,
+            "iot": 33,
+            "guardduty": 32,
+            "pinpoint": 25,
+            "eks": 21,
+            "mediatailor": 21,
+            "ssm": 20,
+            "refactor-spaces": 20,
+            "apigateway": 19,
+            "elasticloadbalancing": 18,
+            "emr-containers": 18,
+            "greengrass": 17,
+            "glue": 17,
+            "events": 16,
+            "groundstation": 16,
+            "profile": 16,
+            "s3": 16,
+            "bedrock": 15,
+            "elasticache": 15,
+            "ivs": 15,
+            "appmesh": 14,
+            "imagebuilder": 14,
+            "transfer": 14,
+            "connect": 13,
+            "forecast": 12,
+            "dms": 12,
+            "route53resolver": 12,
+            "databrew": 12,
+            "ecs": 11,
+            "mediapackage": 10,
+            "vpc-lattice": 10,
+            "resiliencehub": 9,
+            "cloudtrail": 8,
+            "elasticbeanstalk": 8,
+            "appconfig": 8,
+            "personalize": 8,
+            "batch": 8,
+            "quicksight": 8,
+            "iotsitewise": 8,
+            "proton": 8,
+            "chime-sdk-voice": 8,
+            "iottwinmaker": 7,
+            "airflow": 7,
+            "ses": 7,
+            "wafv2": 7,
+            "qconnect": 7,
+            "m2": 6,
+            "fis": 6,
+            "iotevents": 6,
+            "amplify": 6,
+            "backup": 6,
+            "outposts": 6,
+            "dataexchange": 6,
+            "verifiedpermissions": 5,
+            "monitoring": 5,
+            "detective": 5,
+            "lambda": 5,
+            "emr-serverless": 4,
+            "elasticfilesystem": 4,
+            "states": 4,
+            "aps": 4,
+            "logs": 4,
+            "ivschat": 4,
+            "chime-sdk-media-pipelines": 4,
+            "grafana": 4,
+            "athena": 4,
+            "resource-explorer-2": 4,
+            "access-analyzer": 4,
+            "omics": 4,
+            "macie2": 4,
+            "lex": 4,
+            "codepipeline": 4,
+            "app-integrations": 4,
+            "cloudformation": 4,
+            "ds": 4,
+            "managedblockchain": 4,
+            "servicecatalog-appregistry": 4,
+            "amazonmq": 4,
+            "inspector2": 3,
+            "kafka": 3,
+            "synthetics": 3,
+            "datasync": 3,
+            "config": 3,
+            "ssm-incidents": 2,
+            "scheduler": 2,
+            "servicediscovery": 2,
+            "acm": 2,
+            "signer": 2,
+            "codestar-connections": 2,
+            "codeconnections": 2,
+            "ram": 2,
+            "pipes": 2,
+            "cloud9": 2,
+            "resource-groups": 2,
+            "schemas": 2,
+            "backup-gateway": 2,
+            "autoscaling": 2,
+            "cognito-identity": 2,
+            "appflow": 2,
+            "kms": 2,
+            "sns": 2,
+            "secretsmanager": 2,
+            "acm-pca": 2,
+            "rum": 2,
+            "aoss": 2,
+            "codebuild": 2,
+            "dynamodb": 2,
+            "rekognition": 2,
+            "codecommit": 2,
+            "appsync": 2,
+            "ecr": 2,
+            "iotfleethub": 1,
+            "oam": 1,
+            "cognito-idp": 1
+        },
+        "actions": {
+            "ListResources": 166,
+            "ListEnvironments": 35,
+            "ListClusters": 28,
+            "ListDetectors": 27,
+            "DescribeSecurityGroupRules": 20
+        },
+        "time_distribution": {
+            "00-06": 112,
+            "06-12": 658,
+            "12-18": 355,
+            "18-24": 156
+        }
+    },
+    "tester": {
+        "total_events": 1,
+        "services": {
+            "s3": 1
+        },
+        "actions": {
+            "CreateBucket": 1
+        },
+        "time_distribution": {
+            "00-06": 0,
+            "06-12": 1,
+            "12-18": 0,
+            "18-24": 0
         }
     }
 }

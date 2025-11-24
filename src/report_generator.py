@@ -44,7 +44,7 @@ def generate_report():
     elements = []
 
     # 제목
-    elements.append(Paragraph("<b>Cloud Forensics Automatic Report (V3)</b>", styles['Title']))
+    elements.append(Paragraph("<b>Cloud Forensics Automatic Report (V4)</b>", styles['Title']))
     elements.append(Spacer(1, 14))
 
     # 이벤트 요약
@@ -124,18 +124,26 @@ def generate_report():
         elements.append(Paragraph("No user profiling data available.", styles['Normal']))
         elements.append(Spacer(1, 12))
 
-    # ✅ V2 그래프
+    # ✅ 서비스 분포 그래프 (Top N + 라벨 정리)
     try:
         service_counts = df["service"].value_counts()
-        plt.figure(figsize=(6, 4))
-        service_counts.plot(kind='bar', color='skyblue', title='Event Distribution by Service')
+        top_n = 15
+        if len(service_counts) > top_n:
+            svc_counts = service_counts.head(top_n)
+        else:
+            svc_counts = service_counts
+
+        plt.figure(figsize=(7.5, 3.8))
+        svc_counts.plot(kind='bar', color='skyblue')
+        plt.title(f"Top {len(svc_counts)} Services by Event Count")
         plt.xlabel('Service')
         plt.ylabel('Count')
+        plt.xticks(rotation=45, ha="right")
         plt.tight_layout()
 
         chart_path = Path(__file__).resolve().parent.parent / "out" / "service_chart.png"
         chart_path.parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(chart_path)
+        plt.savefig(chart_path, dpi=150)
         plt.close()
 
         elements.append(Paragraph("&#9632; Service-wise Event Distribution", styles['Heading2']))
@@ -215,7 +223,6 @@ def generate_report():
     ]))
     elements.append(t2)
     elements.append(Spacer(1, 14))
-
 
     elements.append(Paragraph(
         "This report summarizes recent AWS CloudTrail events and highlights potentially risky actions based on defined detection rules.",
