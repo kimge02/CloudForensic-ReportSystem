@@ -153,15 +153,4 @@ python main.py
 
 ---
 
-## 📌 향후 업데이트 (로드맵)
 
-* GCP / Azure Audit 로그 입력 지원
-* SIEM 연동 (Elastic / Splunk)
-* 실시간 스트림 처리 (Kinesis / Kafka)
-* LLM 기반 자동 포렌식 분석 요약
-
----
-
-# 😊 이렇게 정리된 README를 GitHub에 붙여 넣으면 깔끔하게 보여!
-
-원하면 README에 **이미지 / 다이어그램 / 동작 예시**도 추가해서 더 고급스럽게 만들어줄게.
