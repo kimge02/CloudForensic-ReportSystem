@@ -9,8 +9,10 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import json
 
-ALERTS = Path(r"E:\고은폴더\대학교\정보보안\3학년\캡스톤디자인(3-2)\CloudForensic-ReportSystem\out\alerts.csv")
-REPORTS = Path(r"E:\고은폴더\대학교\정보보안\3학년\캡스톤디자인(3-2)\CloudForensic-ReportSystem\reports\report.pdf")
+ROOT_DIR = Path(__file__).resolve().parents[1]
+ALERTS = ROOT_DIR / "out" / "alerts.csv"
+REPORTS = ROOT_DIR / "reports" / "report.pdf"
+
 
 def generate_report():
     df = pd.read_csv(ALERTS)
